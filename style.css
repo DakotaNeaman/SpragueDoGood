@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#buttons-header {
+    background-color: orange;
+    width: 100vw;
+    height: 100px;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-button {
+    border: none;
+}
+
+.header-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.selected {
+    background-color: black;
+    color: white;
+    height: 100px;
+}
+
+.unselected {
+    background-color: rgb(130, 90, 0);
+    height: 100%;
+}
