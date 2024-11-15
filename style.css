@@ -2,10 +2,22 @@ body {
     margin: 0;
     padding: 0;
 }
-
+p {
+    margin: 0;
+    padding: 0;
+}
+.vina-sans-regular {
+    font-family: "Vina Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 #buttons-header {
+    position: absolute;
+    z-index: 2;
     background-color: orange;
-    width: 100vw;
+    width: 80vw;
+    left: 20vw;
     height: 100px;
     margin: 0 !important;
     display: flex;
@@ -13,7 +25,29 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+#left-column {
+    position: fixed;
+    background-color: orange;
+    z-index: 1;
+    width: 20vw;
+    height: 100vw;
+    margin: 0;
 
+    padding: 0;
+    color: white;
+    
+    margin-top: 0;
+    font-family: "Vina Sans", sans-serif;
+
+    justify-content: flex-start;
+}
+#do-good {
+    font-size: 1000%;
+    line-height: 90%;
+}
+#cad-tag {
+    font-size: 140%;
+}
 .header-button {
     border: none;
 }
