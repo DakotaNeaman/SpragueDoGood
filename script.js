@@ -20,21 +20,20 @@ const app = initializeApp(firebaseConfig);
 var unselectedElements = document.getElementsByClassName("unselected");
 var selectedElements = document.getElementsByClassName("selected");
 var buttons = document.getElementsByClassName("buttons");
-for(var i=0;i<buttons.length;i++) {
-
-    const currentElement = buttons[i];
-
-    currentElement.addEventListener("click", function(event) {
-        selectedElements = document.getElementsByClassName("selected");
+let headerButtons = document.getElementsByClassName("header-button");
+let unselectedButtons = document.getElementsByClassName("unselected");
+let selectedButtons = document.getElementsByClassName("selected");
 
 
-        selectedElements[0].classList.add("unselected");
-        selectedElements[0].classList.remove("selected");
+for (let i = 0; i < headerButtons.length; i++) {
+    let currentButton = headerButtons[i];
+    currentButton.addEventListener("click", function() {
+        if(currentButton.classList.contains("unselected")) {
+            selectedButtons[0].classList.add("unselected");
+            selectedButtons[0].classList.remove("selected");
 
-        currentElement.classList.add("selected");
-        currentElement.classList.remove("unselected");
-
-        
-
-    },false);
+            currentButton.classList.add("selected");
+            currentButton.classList.remove("unselected");
+        }
+    });
 }
