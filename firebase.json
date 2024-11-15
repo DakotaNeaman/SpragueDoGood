@@ -1,10 +1,13 @@
 {
   "hosting": {
-    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "github": {
+        "repo": "DakotaNeaman/SpragueDoGood",
+        "branch": "main"
+    }
   }
 }
