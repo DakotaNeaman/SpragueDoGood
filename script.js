@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import {initializeApp} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,11 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-var unselectedElements = document.getElementsByClassName("unselected");
-var selectedElements = document.getElementsByClassName("selected");
-var buttons = document.getElementsByClassName("buttons");
 let headerButtons = document.getElementsByClassName("header-button");
-let unselectedButtons = document.getElementsByClassName("unselected");
 let selectedButtons = document.getElementsByClassName("selected");
 
 
