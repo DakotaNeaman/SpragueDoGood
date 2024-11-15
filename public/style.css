@@ -16,6 +16,7 @@ p {
     position: absolute;
     z-index: 2;
     background-color: black;
+
     width: 80vw;
     left: 20vw;
     height: 100px;
