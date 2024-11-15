@@ -7,8 +7,8 @@
       "**/node_modules/**"
     ],
     "github": {
-      "repo": "DakotaNeaman/SpragueDoGood",
-      "branch": "main" 
+        "repo": "DakotaNeaman/SpragueDoGood",
+        "branch": "main"
     }
   }
 }
