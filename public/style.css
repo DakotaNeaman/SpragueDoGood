@@ -14,7 +14,7 @@ p {
 #buttons-header {
     position: absolute;
     z-index: 2;
-    background-color: green;
+    background-color: blue;
     width: 80vw;
     left: 20vw;
     height: 100px;
