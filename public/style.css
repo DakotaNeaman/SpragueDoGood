@@ -14,10 +14,10 @@ p {
 #buttons-header {
     position: absolute;
     z-index: 2;
-    background-color: pink;
+    background-color: orange;
     width: 80vw;
     left: 20vw;
-    height: 100px;
+    height: 12vh;
     margin: 0 !important;
     display: flex;
     flex-direction: row;
@@ -29,7 +29,7 @@ p {
     background-color: orange;
     z-index: 1;
     width: 20vw;
-    height: 100vw;
+    height: 100vh;
     margin: 0;
 
     padding: 0;
@@ -40,8 +40,17 @@ p {
 
     justify-content: flex-start;
 }
+#content {
+    position: relative;
+    background-color: black;
+    color: white;
+    left:20vw;
+    top: 12vh;
+    width: 80vw;
+    height: 88vh;
+}
 #do-good {
-    font-size: 1000%;
+    font-size: 11vw;
     line-height: 90%;
 }
 #cad-tag {
@@ -59,7 +68,7 @@ p {
 .selected {
     background-color: black;
     color: white;
-    height: 100px;
+    height: 100%;
 }
 
 .unselected {

@@ -24,10 +24,11 @@ let selectedButtons = document.getElementsByClassName("selected");
 for (let i = 0; i < headerButtons.length; i++) {
     let currentButton = headerButtons[i];
     currentButton.addEventListener("click", function() {
-        if(currentButton.classList.contains("unselected")) {
+        if(selectedButtons.length!=0) {
             selectedButtons[0].classList.add("unselected");
             selectedButtons[0].classList.remove("selected");
-
+        }
+        if(currentButton.classList.contains("unselected")) {
             currentButton.classList.add("selected");
             currentButton.classList.remove("unselected");
         }
