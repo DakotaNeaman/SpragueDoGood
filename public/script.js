@@ -1,9 +1,11 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import {getAuth} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import {getFirestore} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { loginListener } from "./signin.js";
+import { registerListener } from "./register.js";
+import { addStateChangeListener } from "./stateChange.js";
+import { signOutListener } from "./signout.js";
 const firebaseConfig = {
   apiKey: "AIzaSyD86x0Z1WVI76hUxXRlc7tT40Ow1SIeFo8",
   authDomain: "spraguedogood.firebaseapp.com",
@@ -16,6 +18,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 let headerButtons = document.getElementsByClassName("header-button");
 let selectedButtons = document.getElementsByClassName("selected");
@@ -34,3 +38,7 @@ for (let i = 0; i < headerButtons.length; i++) {
         }
     });
 }
+loginListener(auth,db);
+registerListener(auth,db);
+addStateChangeListener(auth);
+signOutListener(auth);
