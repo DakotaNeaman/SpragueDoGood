@@ -5,6 +5,14 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "site": "SpragueDoGood",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/about-us.html"
+      }
+    ],
+    "cleanUrls": true
   }
 }
