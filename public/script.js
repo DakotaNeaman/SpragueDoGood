@@ -2,11 +2,11 @@ import {initializeApp} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-
 import {getAuth} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 import {getFirestore} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
-import { loginListener } from "./authentication/signin.js";
+import { login } from "./authentication/signin.js";
 import { registerListener } from "./authentication/register.js";
 import { addStateChangeListener } from "./stateChange.js";
-import { signOutListener } from "./authentication/signout.js";
-
+import { signOutAndUpload } from "./authentication/signout.js";
+import {importTextFromData,getFirestoreData} from "./loadText.js";
 const firebaseConfig = {
   apiKey: "AIzaSyD86x0Z1WVI76hUxXRlc7tT40Ow1SIeFo8",
   authDomain: "spraguedogood.firebaseapp.com",
@@ -39,7 +39,14 @@ for (let i = 0; i < headerButtons.length; i++) {
         }
     });
 }
-loginListener(auth,db);
-registerListener(auth,db);
-addStateChangeListener(auth);
-signOutListener(auth);
+if(document.getElementById("login_button")) {
+    document.getElementById("login_button").addEventListener("click", function() {
+        const password = prompt("Password:");
+        login(auth,password);
+    });
+    document.getElementById("signout_button").addEventListener("click", function() {
+        signOutAndUpload(auth, db);
+    });
+}
+addStateChangeListener(auth,db);
+

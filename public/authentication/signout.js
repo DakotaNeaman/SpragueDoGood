@@ -1,13 +1,22 @@
 import { onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { uploadText,getFirestoreData,importTextFromData } from "../loadText.js";
 
-function signOutListener(auth) {
-    document.getElementById("signout_button").addEventListener("click", () => {
-        auth.signOut().then(() => {
-
-        }).catch((err) => {
-            console.log(err);
-        });
+function signOutAndUpload(auth,db) {
+    uploadText(db)
+    .then(() => {
+        return getFirestoreData(db);
     })
-    
+    .then((data) => {
+        return importTextFromData(data);
+    })
+    .then(() => {
+        return auth.signOut();
+    })
+    .then(() => {
+        document.getElementById("cad-tag").innerHTML="@SPRAGUE CAD";
+    })
+    .catch((err) => {
+        console.log(err);
+    });   
 }
-export {signOutListener};
+export {signOutAndUpload};
