@@ -46,5 +46,18 @@ if(document.getElementById("login_button")) {
         signOutAndUpload(auth, db);
     });
 }
+if(document.getElementById("ticket_submit")) {
+    document.getElementById("ticket_submit").addEventListener("click", function() {
+        const texts = document.getElementsByTagName("textarea");
+        let res = "";
+        for(let i=0;i<texts.length;i++) {
+            res+=texts[i].name;
+            res+="\n";
+            res+=texts[i].value;
+            res+="\n\n";
+        }
+        console.log(res);
+    });
+}
 addStateChangeListener(auth,db);
 
