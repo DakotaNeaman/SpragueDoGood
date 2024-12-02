@@ -3,10 +3,8 @@ import {getAuth} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.j
 import {getFirestore} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
 import { login } from "./authentication/signin.js";
-import { registerListener } from "./authentication/register.js";
 import { addStateChangeListener } from "./stateChange.js";
 import { signOutAndUpload } from "./authentication/signout.js";
-import {importTextFromData,getFirestoreData} from "./loadText.js";
 const firebaseConfig = {
   apiKey: "AIzaSyD86x0Z1WVI76hUxXRlc7tT40Ow1SIeFo8",
   authDomain: "spraguedogood.firebaseapp.com",

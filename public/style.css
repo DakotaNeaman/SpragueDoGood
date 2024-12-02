@@ -92,8 +92,8 @@ p {
     background-color: black;
     color: white;
     height: 100%;
+    justify-content: center;
 }
-
 .unselected {
     background-color: rgb(130, 90, 0);
     height: 100%;
