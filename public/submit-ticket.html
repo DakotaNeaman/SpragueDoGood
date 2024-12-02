@@ -17,14 +17,25 @@
     </div>
     <div id="buttons-header">
         <button class="header-button unselected" onclick="window.location.replace('about-us.html')">About Us</button>
-        <button class="header-button unselected" onclick="window.location.replace('submit-ticket.html')">Submit Ticket</button>
+        <button class="header-button selected" onclick="window.location.replace('submit-ticket.html')">Submit Ticket</button>
         <button class="header-button unselected" onclick="window.location.replace('our-students.html')">Our Students</button>
         <button class="header-button unselected" onclick="window.location.replace('past-projects.html')">Past Projects</button>
-        <button class="header-button selected" onclick="window.location.replace('contact-us.html')">Contact us</button>
+        <button class="header-button unselected" onclick="window.location.replace('contact-us.html')">Contact us</button>
     </div>
     <div id="content">
-        <p class="text" id="contact-us"></p>
-        
+        <div class="form">
+            <label for="fname">First Name: </label><br>
+            <textarea type="text" rows="1"name="fname" placeholder="Ada"></textarea><br>
+
+            <label for="lname">Last Name: </label><br>
+            <textarea type="text" rows="1"name="lname" placeholder="Lovelace"></textarea><br>
+
+            <label for="email">Email: </label><br>
+            <textarea type="text" rows="1"name="email" placeholder="example@gmail.com"></textarea><br>
+            <label for="specs">Specifications: </label><br>
+            <textarea type="text" name="specs"cols="100" rows="20" placeholder="Provide any and all specifications here for what you need!"></textarea><br>
+            <button type="submit">Submit</button>
+        </div>
     </div>
   </body>
   <script src="script.js" type="module"></script>
