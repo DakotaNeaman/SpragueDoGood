@@ -3,15 +3,22 @@ import {importTextFromData,getFirestoreData,uploadText} from "./loadText.js";
 
 function addStateChangeListener(auth, db) {
     auth.onAuthStateChanged(function(user) {
+        
         if (user) {
             document.getElementById("cad-tag").innerHTML="@SPRAGUE CAD: "+user.email;
             
-            
-            
+            const readTicketButton = document.createElement("button");
+            readTicketButton.classList.add("header-button");
+            readTicketButton.classList.add((document.getElementById("tickets") ? "selected" : "unselected"));
+            readTicketButton.onclick = function() {
+                window.location.replace('ticket-reader.html');
+            }
+            readTicketButton.innerHTML="Ticked Reader";
+            document.getElementById("buttons-header").appendChild(readTicketButton);
+
             const textBoxes = document.getElementsByClassName("text");
             for(let i=0;i<textBoxes.length;i++) {
                 let currentText = textBoxes[i];
-
                 const textarea = document.createElement('textarea');
                 textarea.id=currentText.id;
                 const content = currentText.textContent.replace(/<br>/g, '\n');
@@ -19,7 +26,6 @@ function addStateChangeListener(auth, db) {
                 textarea.classList.add('editor-textarea');
                 currentText.innerHTML = '';
                 currentText.appendChild(textarea);
-
             }
         } else {
             getFirestoreData(db).then((data) => {
