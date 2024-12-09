@@ -67,6 +67,25 @@ if(document.getElementById("ticket_submit")) {
         });
     });
 }
+if(document.getElementById("tickets")) {
+    // Load ticket data from database. Rule permissions block non-authenticated users from accessing data.
+    const docref = doc(db,"/tickets/","data");
+
+    getDoc(docref)
+        .then((snap) => {
+            return snap.data();
+        })
+        .then((data) => {
+            console.log(data);
+            console.log("---");
+            data["list"].forEach(function(ticket) {
+                const toAdd = document.createElement("p");
+                console.log(ticket);
+                toAdd.innerHTML=ticket;
+                document.getElementById("tickets").appendChild(toAdd);
+            });
+        });
+}
 addStateChangeListener(auth,db);
 
 async function addTicket(res) {
