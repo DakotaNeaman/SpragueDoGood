@@ -2,6 +2,7 @@ import { onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.0.2/fir
 import { uploadText,getFirestoreData,importTextFromData } from "../loadText.js";
 
 function signOutAndUpload(auth,db) {
+    // Upload text, then reload text from db into <p> tags, then signout.
     uploadText(db)
     .then(() => {
         return getFirestoreData(db);

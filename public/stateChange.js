@@ -2,13 +2,16 @@ import { onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.0.2/fir
 import {importTextFromData,getFirestoreData,uploadText} from "./loadText.js";
 
 function addStateChangeListener(auth, db) {
+    // Code to be ran every time a page is loaded
     auth.onAuthStateChanged(function(user) {
+        // Load data from firestore into <p> tags
         getFirestoreData(db).then((data) => {
             return importTextFromData(data);
         }).then(() => {
             if (user) {
                 document.getElementById("cad-tag").innerHTML="@SPRAGUE CAD: "+user.email;
                 
+                // Add Ticket Reader button at top after sign-in
                 const readTicketButton = document.createElement("button");
                 readTicketButton.classList.add("header-button");
                 readTicketButton.classList.add((document.getElementById("tickets") ? "selected" : "unselected"));
@@ -17,7 +20,8 @@ function addStateChangeListener(auth, db) {
                 }
                 readTicketButton.innerHTML="Ticket Reader";
                 document.getElementById("buttons-header").appendChild(readTicketButton);
-    
+                
+                // Replace all <p> tags with <textarea> tags so they can be editted
                 const textBoxes = document.getElementsByClassName("text");
                 for(let i=0;i<textBoxes.length;i++) {
                     let currentText = textBoxes[i];

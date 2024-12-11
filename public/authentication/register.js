@@ -1,9 +1,14 @@
 import {createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 import { setDoc, collection,doc, addDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"; 
-
+/*
+MUST READ:
+THIS FILE SHOULD *NOT* BE READ BY PULIC
+THIS CODE IS TO BE USED INTERMITTENLY BY DEVELOPERS TO ADD ADMIN ACCOUNTS
+*/
 function registerListener(auth, db) {
     document.getElementById('submit_button').addEventListener('click', function(event) {
-  
+        
+        
         const email = "colinnw15@gmail.com";
         const pass = "123456";
     

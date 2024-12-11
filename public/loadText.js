@@ -27,7 +27,7 @@ async function uploadText(db) {
 }
 /*
     -importTextFromData(db)
-    -Given a copy of <p> data, populate <p> tags with the data
+    -Given a copy of <p> data from firebase, populate <p> tags with the data
     -Used in loading data every time a page loads. 
 */
 async function importTextFromData(data) {

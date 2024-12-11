@@ -3,6 +3,7 @@ import {browserLocalPersistence, setPersistence, signInWithEmailAndPassword} fro
 
 function login(auth, password) {
     const email = "colinnw15@gmail.com";
+    // Set persistence then sign in. Signing in triggers the stateChange listener
     setPersistence(auth, browserLocalPersistence)
         .then(() => {
             return signInWithEmailAndPassword(auth,email,password)
