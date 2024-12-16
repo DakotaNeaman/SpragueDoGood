@@ -12,14 +12,17 @@ function addStateChangeListener(auth, db) {
                 document.getElementById("cad-tag").innerHTML="@SPRAGUE CAD: "+user.email;
                 
                 // Add Ticket Reader button at top after sign-in
-                const readTicketButton = document.createElement("button");
-                readTicketButton.classList.add("header-button");
-                readTicketButton.classList.add((document.getElementById("tickets") ? "selected" : "unselected"));
-                readTicketButton.onclick = function() {
-                    window.location.replace('ticket-reader.html');
+                if(!document.getElementById("read_ticket_button")) {
+                    const readTicketButton = document.createElement("button");
+                    readTicketButton.classList.add("header-button");
+                    readTicketButton.classList.add((document.getElementById("tickets") ? "selected" : "unselected"));
+                    readTicketButton.onclick = function() {
+                        window.location.replace('ticket-reader.html');
+                    }
+                    readTicketButton.innerHTML="Ticket Reader";
+                    readTicketButton.id="read_ticket_button";
+                    document.getElementById("buttons-header").appendChild(readTicketButton);
                 }
-                readTicketButton.innerHTML="Ticket Reader";
-                document.getElementById("buttons-header").appendChild(readTicketButton);
                 
                 // Replace all <p> tags with <textarea> tags so they can be editted
                 const textBoxes = document.getElementsByClassName("text");
