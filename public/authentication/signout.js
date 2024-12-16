@@ -1,16 +1,15 @@
-import { onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 import { uploadText,getFirestoreData,importTextFromData } from "../loadText.js";
 
 function signOutAndUpload(auth,db) {
-    uploadText(db)
-    .then(() => {
-        return getFirestoreData(db);
-    })
+    uploadText(db) // Upload current text to firestore 
+    .then(() => { 
+        return getFirestoreData(db); // Get text back from firestore
+    }) 
     .then((data) => {
-        return importTextFromData(data);
+        return importTextFromData(data); // Load text from firestore
     })
     .then(() => {
-        return auth.signOut();
+        return auth.signOut(); // Sign out of auth. Triggers state change
     })
     .then(() => {
         document.getElementById("cad-tag").innerHTML="@SPRAGUE CAD";

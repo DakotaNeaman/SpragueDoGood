@@ -53,7 +53,9 @@ p {
     width: 80vw;
     height: 94vh;
 }
-
+#tickets {
+    white-space: pre-wrap
+}
 #do-good {
     font-size: 10vw;
     margin-top: -1vw;
