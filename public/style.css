@@ -56,6 +56,9 @@ p {
 #tickets {
     white-space: pre-wrap
 }
+.image {
+    text-align: center;    
+}
 #do-good {
     font-size: 10vw;
     margin-top: -1vw;
