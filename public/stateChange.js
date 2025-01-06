@@ -1,5 +1,6 @@
 import { onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 import {importTextFromData,getFirestoreData,uploadText} from "./loadText.js";
+import { doc, getDoc} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
 function addStateChangeListener(auth, db) {
     // Code to be ran every time a page is loaded
@@ -11,17 +12,26 @@ function addStateChangeListener(auth, db) {
             if (user) {
                 document.getElementById("cad-tag").innerHTML="@SPRAGUE CAD: "+user.email;
                 
-                // Add Ticket Reader button at top after sign-in
-                if(!document.getElementById("read_ticket_button")) {
-                    const readTicketButton = document.createElement("button");
-                    readTicketButton.classList.add("header-button");
-                    readTicketButton.classList.add((document.getElementById("tickets") ? "selected" : "unselected"));
-                    readTicketButton.onclick = function() {
-                        window.location.replace('ticket-reader.html');
-                    }
-                    readTicketButton.innerHTML="Ticket Reader";
-                    readTicketButton.id="read_ticket_button";
-                    document.getElementById("buttons-header").appendChild(readTicketButton);
+                // If signed in user goes into submit ticket page, instead load submitted tickets
+                if(document.getElementById("ticket_submit")) {
+                    document.getElementById("content").innerHTML="";
+                    document.querySelector(".selected").innerHTML="Ticket Reader";
+                    
+                     // Load ticket data from database. Rule permissions block non-authenticated users from accessing data.
+                    const docref = doc(db,"/tickets/","data");
+
+                    getDoc(docref)
+                        .then((snap) => {
+                            return snap.data();
+                        })
+                        .then((data) => {
+                            // For each ticket, create a <p> tag for it and append to content div
+                            data["list"].forEach(function(ticket) {
+                                const toAdd = document.createElement("p");
+                                toAdd.innerHTML=ticket;
+                                document.getElementById("content").appendChild(toAdd);
+                            });
+                        });
                 }
                 
                 // Replace all <p> tags with <textarea> tags so they can be editted

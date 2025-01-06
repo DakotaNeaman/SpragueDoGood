@@ -1,6 +1,7 @@
 import { uploadText,getFirestoreData,importTextFromData } from "../loadText.js";
 
 function signOutAndUpload(auth,db) {
+    
     uploadText(db) // Upload current text to firestore 
     .then(() => { 
         return getFirestoreData(db); // Get text back from firestore
